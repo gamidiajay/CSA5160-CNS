@@ -1,0 +1,102 @@
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+char matrix[5][5];
+char *keyword = "playfair";
+
+void generate_matrix() {
+    int i, j, k = 0;
+    char alphabet[] = "abcdefghijklmnopqrstuvwxyz";
+    for (i = 0; i < 5; i++) {
+        for (j = 0; j < 5; j++) {
+            matrix[i][j] = '*';
+        }
+    }
+    for (i = 0; i < strlen(keyword); i++) {
+        if (keyword[i] != 'j') {
+            matrix[k / 5][k % 5] = tolower(keyword[i]);
+            alphabet[tolower(keyword[i]) - 'a'] = '*';
+            k++;
+        }
+    }
+    for (i = 0; i < 26; i++) {
+        if (alphabet[i] != '*') {
+            matrix[k / 5][k % 5] = alphabet[i];
+            k++;
+        }
+    }
+}
+
+void prepare_text(char *text) {
+    int i, j;
+    for (i = 0; i < strlen(text); i++) {
+        if (text[i] == 'j')
+            text[i] = 'i';
+        if (isupper(text[i]))
+            text[i] = tolower(text[i]);
+    }
+    for (i = 0; i < strlen(text); i += 2) {
+        if (i + 1 < strlen(text)) {
+            if (text[i] == text[i + 1]) {
+                for (j = i + 1; j < strlen(text); j++) {
+                    if (text[j] != text[i]) {
+                        text[j] = text[i + 1];
+                        text[i + 1] = 'x';
+                        break;
+                    }
+                }
+            }
+        } else {
+            text[i] = 'x';
+        }
+    }
+}
+
+void encrypt(char *text) {
+    int i, x1, y1, x2, y2;
+    for (i = 0; i < strlen(text); i += 2) {
+        for (x1 = 0; x1 < 5; x1++) {
+            for (y1 = 0; y1 < 5; y1++) {
+                if (matrix[x1][y1] == text[i]) {
+                    break;
+                }
+            }
+            if (matrix[x1][y1] == text[i])
+                break;
+        }
+        for (x2 = 0; x2 < 5; x2++) {
+            for (y2 = 0; y2 < 5; y2++) {
+                if (matrix[x2][y2] == text[i + 1]) {
+                    break;
+                }
+            }
+            if (matrix[x2][y2] == text[i + 1])
+                break;
+        }
+        if (x1 == x2) {
+            printf("%c%c", matrix[x1][(y1 + 1) % 5], matrix[x2][(y2 + 1) % 5]);
+        } else if (y1 == y2) {
+            printf("%c%c", matrix[(x1 + 1) % 5][y1], matrix[(x2 + 1) % 5][y2]);
+        } else {
+            printf("%c%c", matrix[x1][y2], matrix[x2][y1]);
+        }
+    }
+    printf("\n");
+}
+
+int main() {
+    char text[] = "Hide the gold in the tree stump";
+    generate_matrix();
+    prepare_text(text);
+    encrypt(text);
+    return 0;
+}
+
+OUTPUT:-
+
+ebikzxjgkmykdrmzxjgzxigkzmxtnad
+
+--------------------------------
+Process exited after 0.07054 seconds with return value 0
+Press any key to continue . . .
