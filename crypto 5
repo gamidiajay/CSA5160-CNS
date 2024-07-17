@@ -1,0 +1,49 @@
+#include <stdio.h>
+
+#define SIZE 26
+
+int encrypt(int a, int b, int p) {
+    return (a * p + b) % SIZE;
+}
+
+int mod_inverse(int a) {
+    int i;
+    for (i = 1; i < SIZE; i++) {
+        if ((a * i) % SIZE == 1)
+            return i;
+    }
+    return -1;
+}
+
+int main() {
+    int a, b, p, c;
+
+    printf("Enter the value of a: ");
+    scanf("%d", &a);
+    if (mod_inverse(a) == -1) {
+        printf("a must be coprime with %d\n", SIZE);
+        return 1;
+    }
+
+    printf("Enter the value of b: ");
+    scanf("%d", &b);
+
+    printf("Enter the plaintext letter (0-25): ");
+    scanf("%d", &p);
+
+    c = encrypt(a, b, p);
+    printf("Ciphertext letter: %d\n", c);
+
+    return 0;
+}
+
+OUTPUT:-
+
+Enter the value of a: 3
+Enter the value of b: 6
+Enter the plaintext letter (0-25): 9
+Ciphertext letter: 7
+
+--------------------------------
+Process exited after 6.792 seconds with return value 0
+Press any key to continue . . .
