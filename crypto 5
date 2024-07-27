@@ -36,14 +36,3 @@ int main() {
 
     return 0;
 }
-
-OUTPUT:-
-
-Enter the value of a: 3
-Enter the value of b: 6
-Enter the plaintext letter (0-25): 9
-Ciphertext letter: 7
-
---------------------------------
-Process exited after 6.792 seconds with return value 0
-Press any key to continue . . .
