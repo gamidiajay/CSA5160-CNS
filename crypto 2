@@ -46,14 +46,3 @@ int main() {
     
     return 0;
 }
-
-OUTPUT:-
-
-Plaintext: Hello, World!
-Hello, World!
-Ciphertext: Urzzb, Jbeyq!
-Vsaac, Kcfzr!
-
---------------------------------
-Process exited after 0.05465 seconds with return value 0
-Press any key to continue . . .
