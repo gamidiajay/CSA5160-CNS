@@ -41,38 +41,3 @@ void caesarCipher(char *message, int shift) {
         printf("%c", ch);
     }
 }
-
-
-OUTPUT:-
-
-Enter a message to encrypt: hello
-Encrypting the message in all shifts (1 to 25):
-Shift 1: ifmmp
-Shift 2: jgnnq
-Shift 3: khoor
-Shift 4: lipps
-Shift 5: mjqqt
-Shift 6: nkrru
-Shift 7: olssv
-Shift 8: pmttw
-Shift 9: qnuux
-Shift 10: rovvy
-Shift 11: spwwz
-Shift 12: tqxxa
-Shift 13: uryyb
-Shift 14: vszzc
-Shift 15: wtaad
-Shift 16: xubbe
-Shift 17: yvccf
-Shift 18: zwddg
-Shift 19: axeeh
-Shift 20: byffi
-Shift 21: czggj
-Shift 22: dahhk
-Shift 23: ebiil
-Shift 24: fcjjm
-Shift 25: gdkkn
-
---------------------------------
-Process exited after 7.864 seconds with return value 0
-Press any key to continue . . .
