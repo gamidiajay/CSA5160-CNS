@@ -58,14 +58,3 @@ int main() {
     
     return 0;
 }
-
-OUTPUT:-
-
-Plaintext: Hello, World!
-Hfnos, Dwavo!
-Key: abcdefghijklm
-, !
-
---------------------------------
-Process exited after 0.05592 seconds with return value 0
-Press any key to continue . . .
