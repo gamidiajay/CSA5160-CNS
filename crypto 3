@@ -92,11 +92,3 @@ int main() {
     encrypt(text);
     return 0;
 }
-
-OUTPUT:-
-
-ebikzxjgkmykdrmzxjgzxigkzmxtnad
-
---------------------------------
-Process exited after 0.07054 seconds with return value 0
-Press any key to continue . . .
